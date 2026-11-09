@@ -1,0 +1,54 @@
+// Biyu — Worker de API + Static Assets de la PWA (ARCHITECTURE §1, ADR 0001 T-02).
+// Los IDs de D1 de prueba y producción se completan al crear los recursos (fase 0, pendiente
+// de cuenta Cloudflare). No hay recursos contratados todavía.
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "biyu",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+  "assets": {
+    "directory": "../web/dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"],
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "biyu-local",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "../../migrations",
+    },
+  ],
+  "vars": {
+    "ENVIRONMENT": "local",
+  },
+  "env": {
+    "test": {
+      "name": "biyu-test",
+      "vars": { "ENVIRONMENT": "test" },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "biyu-test",
+          "database_id": "00000000-0000-0000-0000-000000000000",
+          "migrations_dir": "../../migrations",
+        },
+      ],
+    },
+    "production": {
+      "name": "biyu-production",
+      "vars": { "ENVIRONMENT": "production" },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "biyu-production",
+          "database_id": "00000000-0000-0000-0000-000000000000",
+          "migrations_dir": "../../migrations",
+        },
+      ],
+    },
+  },
+}

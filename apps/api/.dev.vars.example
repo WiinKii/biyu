@@ -1,0 +1,6 @@
+# Copia este archivo como .dev.vars para desarrollo local. Nunca subas .dev.vars al repositorio.
+# Fase 1: audiencia y equipo de Cloudflare Access (no son secretos, pero varían por entorno).
+# ACCESS_TEAM_DOMAIN=
+# ACCESS_AUD=
+# Fase 6: secreto del webhook del adaptador de WhatsApp (secreto: usar `wrangler secret put` en remoto).
+# WHATSAPP_WEBHOOK_SECRET=

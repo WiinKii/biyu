@@ -7,16 +7,18 @@ Fases de entrega funcional. Cada fase cierra cuando cumple sus condiciones; no s
 ---
 
 ## Fase 0 — Esqueleto y validaciones
-- [ ] Monorepo: `apps/web`, `apps/api`, `packages/domain`, `packages/contracts`, `packages/test-fixtures`, `migrations`, `tests/e2e`.
-- [ ] TypeScript estricto, lint, formato, Vitest, Playwright, CI.
-- [ ] Worker + Static Assets + D1 local y de prueba.
-- [ ] Versiones fijadas y lockfile (V-06).
-- [ ] Validar atomicidad D1 con guardia de publicación (V-01).
-- [ ] Validar Access con PWA en iPhone (V-02).
-- [ ] Revisar cuotas gratuitas (V-05).
-- [ ] Decidir D-01, D-02, D-03.
+- [x] Monorepo: `apps/web`, `apps/api`, `packages/domain`, `packages/contracts`, `packages/test-fixtures`, `migrations`, `tests/e2e`.
+- [x] TypeScript estricto, lint, formato, Vitest, Playwright, CI.
+- [ ] Worker + Static Assets + D1 local y de prueba. *(Local hecho; D1 remoto de prueba pendiente de cuenta Cloudflare.)*
+- [x] Versiones fijadas y lockfile (V-06).
+- [ ] Validar atomicidad D1 con guardia de publicación (V-01). *(Demostrada en D1 local con fallo en cada paso y concurrencia; falta remoto.)*
+- [ ] Validar Access con PWA en iPhone (V-02). *(Plan y alternativa documentados; requiere dispositivo.)*
+- [x] Revisar cuotas gratuitas (V-05).
+- [ ] Decidir D-01, D-02, D-03. *(Adoptadas provisionalmente según el ADR; falta confirmación del usuario.)*
 
 **Cierre:** CI verde; V-01 demostrada con pruebas de fallo y concurrencia; decisión sobre Access documentada; ADR 0001 actualizado.
+
+**Estado (2026-11-09):** cierre parcial. Ver [entregas/FASE-0.md](entregas/FASE-0.md).
 
 ---
 

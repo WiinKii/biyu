@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Biyu — isotipo</title>
+  <desc id="desc">Dos arcos de igual radio, longitud y grosor, relacionados por un giro exacto de 180 grados. Degradados cian, azul y violeta sobre fondo transparente.</desc>
+  <defs>
+    <linearGradient id="cyan-blue" gradientUnits="userSpaceOnUse" x1="119" y1="293" x2="337" y2="140">
+      <stop stop-color="#00DED8"/>
+      <stop offset="0.48" stop-color="#00AEF5"/>
+      <stop offset="1" stop-color="#064AFF"/>
+    </linearGradient>
+    <linearGradient id="blue-violet" gradientUnits="userSpaceOnUse" x1="337" y1="140" x2="119" y2="293">
+      <stop stop-color="#087BFF"/>
+      <stop offset="0.5" stop-color="#6540FF"/>
+      <stop offset="1" stop-color="#A020FF"/>
+    </linearGradient>
+  </defs>
+  <g stroke-width="64" stroke-linecap="round">
+    <path d="M 118.838532667 292.752304405 A 142 142 0 0 1 337.447853962 139.680409711" stroke="url(#cyan-blue)"/>
+    <path d="M 118.838532667 292.752304405 A 142 142 0 0 1 337.447853962 139.680409711" stroke="url(#blue-violet)" transform="rotate(180 256 256)"/>
+  </g>
+</svg>

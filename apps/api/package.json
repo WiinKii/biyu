@@ -1,0 +1,26 @@
+{
+  "name": "@biyu/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --port 8787",
+    "types": "wrangler types --include-runtime=true",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "db:migrate:local": "wrangler d1 migrations apply DB --local",
+    "deploy:test": "wrangler deploy --env test",
+    "deploy:production": "wrangler deploy --env production"
+  },
+  "dependencies": {
+    "@biyu/contracts": "workspace:*",
+    "@biyu/domain": "workspace:*",
+    "hono": "4.13.17"
+  },
+  "devDependencies": {
+    "@biyu/test-fixtures": "workspace:*",
+    "@cloudflare/vitest-plugin": "1.6.0",
+    "vitest": "4.1.12",
+    "wrangler": "4.158.0"
+  }
+}

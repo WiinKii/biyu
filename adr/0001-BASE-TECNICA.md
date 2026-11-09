@@ -1,6 +1,6 @@
 # ADR 0001 — Base técnica de Biyu
 
-Estado: **Propuesta** · Fecha: 2026-11-08
+Estado: **Propuesta, en validación** · Fecha: 2026-11-08 · Revisión: 2026-11-09 (cierre parcial de la fase 0, ver §6)
 Las decisiones de este registro son base de trabajo. Se marcan como **Aceptadas** cuando el usuario las aprueba o la validación de la fase 0 las confirma.
 
 ---
@@ -88,3 +88,25 @@ Biyu es una app privada de finanzas personales para un propietario, con varias m
 ## 5. Revisión
 
 Revisar este ADR al cerrar la fase 0. Cada cambio incompatible se registra en un ADR nuevo (`adr/0002-…`) y se actualizan los documentos afectados.
+
+---
+
+## 6. Estado tras la fase 0 (2026-11-09)
+
+Detalle y evidencias en [docs/entregas/FASE-0.md](../docs/entregas/FASE-0.md).
+
+| ID | Estado | Nota |
+| --- | --- | --- |
+| T-01, T-02, T-03, T-05, T-16 | **Aceptadas por validación** | Monorepo, Worker + Static Assets + D1 local, Vitest y Playwright funcionando en CI. |
+| T-04 | Propuesta | Pendiente de V-02 en iPhone real. |
+| T-06, T-07, T-08, T-09, T-10 | Propuestas, mecanismo de almacenamiento validado | V-01 demuestra balance por activo, inmutabilidad, reverso único, límites e idempotencia en D1 local. |
+| T-11 a T-15 | Propuestas | Fases 5–7. |
+| V-01 | **Validada en D1 local**; remoto pendiente | Guardia `changes()` + vista con trigger `INSTEAD OF`; rollback completo tras fallo en cada paso; concurrencia sobre la misma clave. Falta repetir en D1 remoto de prueba. |
+| V-02 | Pendiente | Requiere cuenta Cloudflare e iPhone. Plan y alternativa documentados. |
+| V-05 | **Revisada (documental)** | Límites del plan gratuito con fuente y fecha. El más exigente: 10 ms de CPU por solicitud. |
+| V-06 | **Validada** | Versiones exactas, lockfile, compatibilidades documentadas. `@cloudflare/vitest-pool-workers` reemplazado por `@cloudflare/vitest-plugin`. |
+| D-01 | Adoptada provisionalmente | USD por defecto, configurable. Pendiente de confirmación del usuario. |
+| D-02 | Adoptada provisionalmente | `half_away_from_zero` (`packages/domain/src/rounding.ts`). Pendiente de confirmación. |
+| D-03 | Adoptada provisionalmente | USDT escala 6 (`packages/domain/src/assets.ts`). Pendiente de confirmación. |
+
+Precisión de esquema para la fase 1: DOMAIN §4 define `converted_source` (principal efectivamente cambiado) y DATABASE `transfer_details` no lo incluye. Se añadirá la columna `converted_source_minor` en la migración de la fase 1; no cambia ningún cálculo.

@@ -39,4 +39,18 @@ Requisitos explícitos del usuario > DOMAIN (cálculos) > DATABASE (integridad) 
 - Si algo contradice la documentación, detenerse y señalarlo en lugar de improvisar.
 
 ## 5. Comandos
-Se definen en la fase 0 y se documentan aquí (instalar, desarrollo, pruebas, migraciones, despliegue por entorno).
+Requisitos: Node 22 (`.nvmrc`) y pnpm 10 (`corepack enable`).
+
+| Tarea | Comando |
+| --- | --- |
+| Instalar | `pnpm install` |
+| Desarrollo (PWA + API + D1 local en :8787) | `pnpm dev` |
+| Solo PWA con recarga (proxy `/api` → :8787) | `pnpm dev:web` (con `pnpm --filter @biyu/api dev` en otra terminal) |
+| Verificación completa | `pnpm check` (formato, lint, tipos y pruebas) |
+| Pruebas unitarias e integración (D1 local) | `pnpm test` |
+| E2E y QA visual | `pnpm test:e2e` |
+| Formatear | `pnpm format` |
+| Tipos del Worker tras cambiar `wrangler.jsonc` | `pnpm types` |
+| Migraciones D1 local | `pnpm db:migrate:local` |
+| Despliegue | `pnpm --filter @biyu/api deploy:test` / `deploy:production` — **no disponible** hasta crear los recursos de Cloudflare y reemplazar los IDs de marcador |
+

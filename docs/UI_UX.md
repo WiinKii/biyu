@@ -57,21 +57,26 @@ Estética minimalista, moderna y cercana. Usar superficies limpias, espacios gen
 
 Implementar variables semánticas compartidas; no dispersar colores literales por los componentes.
 
+Valores vigentes (v1.1, anexo C). La fuente única en código es `apps/web/src/theme/tokens.css`; esta tabla la resume.
+
 | Token | Claro | Oscuro | Uso |
 | --- | --- | --- | --- |
-| `background` | `#F7F8FC` | `#0B1020` | Fondo de aplicación |
-| `surface` | `#FFFFFF` | `#151C2E` | Tarjetas y formularios |
-| `surface-muted` | `#EEF1F7` | `#1D273B` | Agrupaciones secundarias |
-| `text-primary` | `#162033` | `#F4F7FC` | Texto principal |
-| `text-secondary` | `#526078` | `#B4C0D4` | Metadatos y ayuda |
-| `border` | `#D8DFEA` | `#35425B` | Separadores y contornos |
-| `primary` | `#5B43D6` | `#B4A4FF` | Acción principal y foco |
-| `accent-cyan` | `#087F92` | `#67DCEB` | Acento secundario |
+| `background` | `#F4F7FD` | `#070B17` | Fondo de aplicación |
+| `surface` | `#FFFFFF` | `#111933` | Tarjetas y formularios |
+| `surface-muted` | `#E9EEF8` | `#1A2444` | Agrupaciones secundarias |
+| `surface-glass` | blanco 72 % | `#111933` 72 % | Navegación, barras y tarjetas flotantes con desenfoque |
+| `text-primary` | `#0E1730` | `#F3F6FD` | Texto principal |
+| `text-secondary` | `#4A5878` | `#A9B6D3` | Metadatos y ayuda |
+| `border` | `#D3DCEC` | `#2A3658` | Separadores y contornos |
+| `primary` | `#1F4FE0` | `#7AA2FF` | Acción principal, enlaces y foco |
+| `primary-contrast` | `#FFFFFF` | `#070B17` | Texto sobre botón principal |
+| `accent-cyan` | `#067385` | `#5FE3E8` | Acento secundario |
+| `accent-violet` | `#5B35E6` | `#B59CFF` | Acento de marca e insignias |
 | `success` | `#167044` | `#6CDEA4` | Resultado satisfactorio |
 | `warning` | `#875400` | `#F5CD75` | Atención o pendiente |
 | `danger` | `#B4233B` | `#FF9CAE` | Error o acción destructiva |
 
-El degradado de marca puede combinar cian y violeta en el isotipo, detalles o una tarjeta destacada. Validar el contraste de cada combinación real; estos tokens no certifican por sí solos accesibilidad. Definir también estados hover, pressed, focus y disabled, y colores de contenido sobre botones.
+El degradado de marca (`brand-gradient`: `#00DED8` → `#00AEF5` → `#064AFF` → `#6540FF` → `#A020FF`, tomado del isotipo) se usa en el isotipo, detalles o una tarjeta destacada. El contraste de cada par texto/fondo de esta tabla se comprueba automáticamente (`apps/web/src/theme/tokens.test.ts`); combinaciones nuevas deben añadirse a esa prueba. Definir también estados hover, pressed, focus y disabled, y colores de contenido sobre botones.
 
 Ingresos, gastos y transferencias deben distinguirse mediante texto, icono y signo cuando corresponda, además del color. Una transferencia puede usar el acento principal; no marcarla automáticamente como pérdida.
 
@@ -247,6 +252,7 @@ Actualizar versión y registrar cambios cuando se alteren reglas compartidas. Ma
 | Versión | Fecha | Cambio |
 | --- | --- | --- |
 | 1.0 | 2026-11-08 | Guía inicial de identidad, navegación, interacciones, accesibilidad y ampliación funcional. |
+| 1.1 | 2026-11-09 | Dirección visual según referencias del usuario (anexo C): base azul marino, azul como color principal, violeta y cian del isotipo como acentos; tokens con contraste verificado por pruebas. |
 
 ## Anexo A — Bocetos de referencia
 
@@ -296,6 +302,22 @@ Comisión  ( Diferencia | % | Fijo | % + fijo )
 Resumen: salen 100,00 USD · llegan 97,00 USD · comisión 3,00 USD
                                         [ Revisar y registrar ]
 ```
+
+## Anexo C — Referencias visuales y tokens (v1.1)
+
+El usuario aportó referencias visuales (2026-11-09): un concepto de app bancaria de un diseñador externo. Se usan como **dirección de estilo**, no como diseño a copiar: no se reproducen su marca, nombre, logotipo, tarjetas ni pantallas.
+
+| Rasgo de la referencia | Traducción en Biyu |
+| --- | --- |
+| Base azul marino profunda, casi negra, con brillo azul eléctrico en la parte superior | Tema oscuro `background #070B17` y `hero-glow` radial azul detrás del encabezado; en claro, el mismo brillo atenuado sobre `#F4F7FD`. |
+| Azul como color de acción | `primary` pasa de violeta a azul (`#1F4FE0` / `#7AA2FF`), coherente con el azul central del isotipo. El violeta queda como acento de marca. |
+| Tarjetas translúcidas con desenfoque y bordes suaves | `surface-glass` con `backdrop-filter`, solo en navegación, encabezados y tarjetas flotantes, con fondo opaco alternativo (§4.5). |
+| Saldo grande y legible, decimales atenuados | Patrón para `MoneyAmount` (fase 1), **siempre con código de moneda** (R14); nunca solo `$`. |
+| Acciones rápidas en iconos circulares | Aplicable a accesos del botón `+` y de cuentas, con etiqueta visible y objetivo de 44 × 44 px. |
+| Navegación inferior de cinco destinos | Biyu mantiene sus **cuatro destinos** y el botón `+` (§5.1). |
+| Barras de progreso con porcentaje | Base visual para `BudgetProgress` y metas, con texto y no solo color. |
+
+Cambio frente a v1.0: el cian `#087F92` no alcanzaba 4,5:1 sobre el nuevo fondo claro (4,39:1); se oscureció a `#067385` (5,15:1). La prueba de contraste lo detectó.
 
 ## Anexo B — Historial de cambios
 | Versión | Fecha | Cambio |

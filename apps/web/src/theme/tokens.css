@@ -1,0 +1,127 @@
+/*
+ * Biyu — tokens visuales (fuente única). UI_UX.md §4.2 y anexo C.
+ *
+ * Dirección: base azul marino profunda con brillo azul eléctrico y superficies de vidrio
+ * (referencias visuales aportadas por el usuario), con los degradados del isotipo de Biyu
+ * (cian → azul → violeta) reservados para marca y elementos destacados.
+ * El contraste de cada par texto/fondo se comprueba en src/theme/tokens.test.ts.
+ */
+
+:root {
+  color-scheme: light;
+
+  --biyu-background: #f4f7fd;
+  --biyu-surface: #ffffff;
+  --biyu-surface-muted: #e9eef8;
+  --biyu-surface-glass: rgba(255, 255, 255, 0.72);
+  --biyu-text-primary: #0e1730;
+  --biyu-text-secondary: #4a5878;
+  --biyu-border: #d3dcec;
+  --biyu-primary: #1f4fe0;
+  --biyu-primary-contrast: #ffffff;
+  --biyu-primary-hover: #1a43c0;
+  --biyu-primary-pressed: #15379e;
+  --biyu-focus-ring: #1f4fe0;
+  --biyu-accent-cyan: #067385;
+  --biyu-accent-violet: #5b35e6;
+  --biyu-success: #167044;
+  --biyu-warning: #875400;
+  --biyu-danger: #b4233b;
+  --biyu-disabled-text: #6b7894;
+
+  --biyu-hero-base: #e3eafb;
+  --biyu-hero-glow-1: rgba(47, 107, 255, 0.28);
+  --biyu-hero-glow-2: rgba(0, 174, 245, 0.18);
+  --biyu-shadow: 0 8px 24px rgba(14, 23, 48, 0.08);
+
+  /* Marca: solo isotipo, detalles y tarjetas destacadas; nunca detrás de texto pequeño. */
+  --biyu-brand-gradient: linear-gradient(
+    135deg,
+    #00ded8 0%,
+    #00aef5 30%,
+    #064aff 60%,
+    #6540ff 85%,
+    #a020ff 100%
+  );
+
+  --biyu-space-1: 4px;
+  --biyu-space-2: 8px;
+  --biyu-space-3: 12px;
+  --biyu-space-4: 16px;
+  --biyu-space-5: 24px;
+  --biyu-space-6: 32px;
+  --biyu-space-7: 48px;
+  --biyu-radius-control: 12px;
+  --biyu-radius-card: 20px;
+  --biyu-radius-sheet: 24px;
+  --biyu-duration: 200ms;
+
+  --biyu-font-family:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+}
+
+/* Oscuro por preferencia del sistema, salvo que el usuario fije el tema claro. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+
+    --biyu-background: #070b17;
+    --biyu-surface: #111933;
+    --biyu-surface-muted: #1a2444;
+    --biyu-surface-glass: rgba(17, 25, 51, 0.72);
+    --biyu-text-primary: #f3f6fd;
+    --biyu-text-secondary: #a9b6d3;
+    --biyu-border: #2a3658;
+    --biyu-primary: #7aa2ff;
+    --biyu-primary-contrast: #070b17;
+    --biyu-primary-hover: #94b4ff;
+    --biyu-primary-pressed: #a9c3ff;
+    --biyu-focus-ring: #9dbbff;
+    --biyu-accent-cyan: #5fe3e8;
+    --biyu-accent-violet: #b59cff;
+    --biyu-success: #6cdea4;
+    --biyu-warning: #f5cd75;
+    --biyu-danger: #ff9cae;
+    --biyu-disabled-text: #7d89a6;
+
+    --biyu-hero-base: #0a1230;
+    --biyu-hero-glow-1: rgba(47, 107, 255, 0.55);
+    --biyu-hero-glow-2: rgba(0, 174, 245, 0.25);
+    --biyu-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --biyu-background: #070b17;
+  --biyu-surface: #111933;
+  --biyu-surface-muted: #1a2444;
+  --biyu-surface-glass: rgba(17, 25, 51, 0.72);
+  --biyu-text-primary: #f3f6fd;
+  --biyu-text-secondary: #a9b6d3;
+  --biyu-border: #2a3658;
+  --biyu-primary: #7aa2ff;
+  --biyu-primary-contrast: #070b17;
+  --biyu-primary-hover: #94b4ff;
+  --biyu-primary-pressed: #a9c3ff;
+  --biyu-focus-ring: #9dbbff;
+  --biyu-accent-cyan: #5fe3e8;
+  --biyu-accent-violet: #b59cff;
+  --biyu-success: #6cdea4;
+  --biyu-warning: #f5cd75;
+  --biyu-danger: #ff9cae;
+  --biyu-disabled-text: #7d89a6;
+
+  --biyu-hero-base: #0a1230;
+  --biyu-hero-glow-1: rgba(47, 107, 255, 0.55);
+  --biyu-hero-glow-2: rgba(0, 174, 245, 0.25);
+  --biyu-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --biyu-duration: 0ms;
+  }
+}

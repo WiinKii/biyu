@@ -1,0 +1,14 @@
+{
+  "name": "Biyu",
+  "short_name": "Biyu",
+  "description": "Finanzas personales privadas.",
+  "lang": "es-VE",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#070b17",
+  "theme_color": "#070b17",
+  "icons": [
+    { "src": "/biyu-isotipo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

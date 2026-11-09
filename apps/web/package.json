@@ -1,0 +1,29 @@
+{
+  "name": "@biyu/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "vue-tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@biyu/contracts": "workspace:*",
+    "@ionic/vue": "9.0.10",
+    "@ionic/vue-router": "9.0.10",
+    "ionicons": "8.1.0",
+    "vue": "3.5.45",
+    "vue-router": "5.4.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "6.0.10",
+    "@vue/test-utils": "2.5.1",
+    "jsdom": "27.4.0",
+    "vite": "8.3.6",
+    "vitest": "4.1.12",
+    "vue-tsc": "3.3.14"
+  }
+}

@@ -3,7 +3,7 @@ Versión documental: 1.0 · Fecha: 8 de noviembre de 2026 · Proyecto: FinanceAp
 
 Biyu es una app privada de finanzas personales, pensada para el uso cotidiano en Venezuela, móvil y escritorio. Permite registrar dinero y entender sus recorridos, conversiones y comisiones, también mediante WhatsApp.
 
-Este paquete es una especificación inicial ejecutable por fases. **No contiene una aplicación implementada ni una integración ya configurada.** Las decisiones técnicas que aquí se proponen sirven de base de trabajo; no se presentan como aprobaciones previas del usuario.
+Este paquete es una especificación inicial ejecutable por fases. **Estado actual: fase 0 (esqueleto técnico y validaciones).** La aplicación todavía no registra operaciones ni tiene integraciones configuradas; ver [docs/entregas/FASE-0.md](docs/entregas/FASE-0.md) y los comandos en [AGENTS.md §5](AGENTS.md#5-comandos). Las decisiones técnicas que aquí se proponen sirven de base de trabajo; no se presentan como aprobaciones previas del usuario.
 
 ## Lectura recomendada
 | Archivo | Propósito |

@@ -1,0 +1,37 @@
+{
+  "name": "biyu",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @biyu/web build && pnpm --filter @biyu/api dev",
+    "dev:web": "pnpm --filter @biyu/web dev",
+    "build": "pnpm -r --if-present build",
+    "typecheck": "pnpm types && tsc -p tsconfig.json && pnpm -r --if-present typecheck",
+    "lint": "pnpm types && eslint . --max-warnings=0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "pnpm -r --if-present test",
+    "test:e2e": "playwright test",
+    "db:migrate:local": "pnpm --filter @biyu/api db:migrate:local",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test",
+    "types": "pnpm --silent --filter @biyu/api types > /dev/null"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.63.0",
+    "@types/node": "22.20.5",
+    "@vue/eslint-config-typescript": "14.9.0",
+    "eslint": "10.14.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-vue": "10.12.0",
+    "globals": "17.14.0",
+    "prettier": "3.9.10",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.72.1",
+    "vue-eslint-parser": "10.4.2"
+  }
+}

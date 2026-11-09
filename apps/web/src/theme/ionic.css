@@ -1,0 +1,31 @@
+/* Ionic consume los tokens de Biyu; no se definen colores literales aquí. */
+:root {
+  --ion-font-family: var(--biyu-font-family);
+  --ion-background-color: var(--biyu-background);
+  --ion-text-color: var(--biyu-text-primary);
+  --ion-border-color: var(--biyu-border);
+  --ion-item-background: var(--biyu-surface);
+  --ion-card-background: var(--biyu-surface);
+  --ion-toolbar-background: var(--biyu-surface-glass);
+  --ion-tab-bar-background: var(--biyu-surface-glass);
+
+  --ion-color-primary: var(--biyu-primary);
+  --ion-color-primary-contrast: var(--biyu-primary-contrast);
+  --ion-color-primary-shade: var(--biyu-primary-pressed);
+  --ion-color-primary-tint: var(--biyu-primary-hover);
+  --ion-color-success: var(--biyu-success);
+  --ion-color-warning: var(--biyu-warning);
+  --ion-color-danger: var(--biyu-danger);
+}
+
+body {
+  background: var(--biyu-background);
+  color: var(--biyu-text-primary);
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 3px solid var(--biyu-focus-ring);
+  outline-offset: 2px;
+}
